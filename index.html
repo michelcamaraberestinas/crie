@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRie Lagoinha Sydney . Planejamento S2 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbfaf5;
+  --card: #ffffff;
+  --gold: #C9922A;
+  --gold-soft: #d9a648;
+  --gold-pale: #f5ecd5;
+  --gold-wash: rgba(201,146,42,0.08);
+  --ink: #1a1a1a;
+  --ink-soft: #3d3d3d;
+  --muted: #7a7a7a;
+  --line: #e8e2d0;
+  --line-soft: #f0eadb;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══ TOOLBAR ══ */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(251,250,245,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tb-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.tb-title em { color: var(--gold); font-style: italic; font-weight: 600; }
+
+.tb-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.btn-tool {
+  background: var(--ink);
+  border: none;
+  color: var(--bg);
+  font-size: 0.72rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: opacity 0.2s, transform 0.1s;
+}
+.btn-tool:hover { opacity: 0.85; }
+.btn-tool:active { transform: scale(0.97); }
+
+.btn-save {
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.btn-clear {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.toast {
+  position: fixed;
+  top: 4.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: var(--ink);
+  color: var(--gold);
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  z-index: 200;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ══ PAGE ══ */
+.page { max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+/* ══ HERO ══ */
+.hero {
+  text-align: center;
+  padding: 2rem 0 3.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 3rem;
+}
+
+.hero-logo {
+  width: 110px;
+  height: 110px;
+  background: var(--ink);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.8rem;
+  padding: 18px;
+}
+
+.hero-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.01em;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 400;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hero-verse {
+  margin-top: 2rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line-soft);
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-verse p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.hero-verse strong {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* ══ SECTION ══ */
+.section { margin-bottom: 3.5rem; }
+
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.005em;
+}
+
+.section-lead {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 640px;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* ══ CARD ══ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2rem 2.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.card-inner {
+  background: var(--card);
+  border-radius: 6px;
+  padding: 1.6rem 1.8rem;
+}
+
+/* ══ EDITABLE ══ */
+[contenteditable] {
+  outline: none;
+  transition: background 0.15s, box-shadow 0.15s;
+  border-radius: 3px;
+}
+[contenteditable]:hover { background: var(--gold-wash); }
+[contenteditable]:focus {
+  background: var(--gold-wash);
+  box-shadow: 0 0 0 2px rgba(201,146,42,0.25);
+}
+
+/* ══ MONTH HEADER ══ */
+.month-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.month-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+  min-width: 60px;
+}
+
+.month-mark-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.month-meta { flex: 1; }
+
+.month-cat {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.month-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.month-desc {
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+/* ══ SUBSECTION ══ */
+.subsection {
+  margin: 1.8rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line-soft);
+}
+.subsection:first-of-type {
+  padding-top: 0;
+  border-top: none;
+  margin-top: 1.5rem;
+}
+
+.sub-head {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+}
+
+/* ══ THEME CARDS ══ */
+.theme-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.5rem 1.6rem;
+  margin-bottom: 0.9rem;
+  background: var(--card);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.theme-card:hover {
+  border-color: var(--gold);
+  background: var(--gold-wash);
+}
+.theme-card.selected {
+  border-color: var(--gold);
+  background: var(--gold-wash);
+  border-left: 4px solid var(--gold);
+  padding-left: 1.6rem;
+}
+
+.theme-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.theme-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.theme-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: transparent;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+.theme-card.selected .theme-check {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: white;
+}
+
+.theme-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--gold);
+  margin-bottom: 0.7rem;
+}
+
+.theme-body {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+}
+
+.theme-detail {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--line);
+}
+.theme-detail strong {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  margin-top: 0.6rem;
+}
+.theme-detail strong:first-child { margin-top: 0; }
+
+/* ══ ROTEIRO ══ */
+.roteiro {
+  background: var(--gold-wash);
+  border-radius: 6px;
+  padding: 1.5rem 1.8rem;
+  margin: 1.5rem 0;
+  border-left: 3px solid var(--gold);
+}
+
+.roteiro-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.roteiro-item {
+  display: grid;
+  grid-template-columns: 65px 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(201,146,42,0.15);
+}
+.roteiro-item:last-child { border-bottom: none; }
+
+.roteiro-time {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1.3;
+}
+
+.roteiro-what {
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+/* ══ NOTES ══ */
+.notes {
+  background: #fffdf5;
+  border: 1.5px dashed var(--line);
+  border-radius: 6px;
+  padding: 1.3rem 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.notes-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.notes-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.notes-body {
+  font-size: 0.9rem;
+  color: var(--ink);
+  min-height: 40px;
+  line-height: 1.6;
+}
+.notes-body:empty::before {
+  content: 'Clique aqui e escreva ideias, ajustes, dúvidas...';
+  color: #c5bfa8;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* ══ DETAIL LIST ══ */
+.list {
+  margin: 0.5rem 0;
+}
+.list li {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  padding: 0.4rem 0 0.4rem 1.4rem;
+  position: relative;
+  line-height: 1.6;
+  list-style: none;
+}
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 12px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ══ REFERENCE CARDS ══ */
+.ref-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1rem;
+  background: var(--card);
+}
+
+.ref-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ref-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ref-tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  background: var(--gold-wash);
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+}
+
+.ref-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.ref-block {
+  margin-bottom: 0.9rem;
+}
+.ref-block-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.ref-block-body {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ══ WHATSAPP GRID ══ */
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.week-day {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 0.8rem;
+  text-align: center;
+  background: var(--card);
+  transition: all 0.2s;
+}
+.week-day:hover { border-color: var(--gold); background: var(--gold-wash); }
+
+.week-day-name {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.week-day-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  line-height: 1.2;
+}
+
+.week-day-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ══ PILLARS ══ */
+.pillar-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.pillar {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.4rem;
+  text-align: left;
+  background: var(--card);
+}
+
+.pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.pillar h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.pillar p {
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ══ TEAM ══ */
+.team-cover {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.team-cover-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.team-avatar-lg {
+  width: 88px !important;
+  height: 88px !important;
+  font-size: 1.8rem !important;
+}
+
+.team-name-lg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--ink);
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.team-cover-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 2rem auto 1.5rem;
+  max-width: 200px;
+}
+
+.team-cover-sub {
+  text-align: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.team-row {
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.team-person { text-align: center; }
+
+.team-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 auto 0.6rem;
+}
+
+.team-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.team-role {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+/* ══ FOOTER ══ */
+.footer {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.footer-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+.footer-ref {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.footer-mark {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* ══ DIVIDER ══ */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+.divider-line { flex: 1; height: 1px; background: var(--line); }
+.divider-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 700px) {
+  .page { padding: 1.5rem 1rem 3rem; }
+  .card { padding: 1.5rem 1.3rem; }
+  .card-inner { padding: 1.2rem 1.3rem; }
+  .hero { padding: 1rem 0 2.5rem; margin-bottom: 2rem; }
+  .hero h1 { font-size: 2rem; }
+  .section-title { font-size: 1.6rem; }
+  .month-title { font-size: 1.35rem; }
+  .month-head { gap: 0.8rem; }
+  .month-mark { font-size: 1.8rem; min-width: 45px; }
+  .week-grid { grid-template-columns: 1fr; }
+  .pillar-row { grid-template-columns: 1fr; }
+  .team-row { gap: 2rem; }
+  .roteiro { padding: 1.2rem 1.3rem; }
+  .roteiro-item { grid-template-columns: 55px 1fr; }
+  .theme-card { padding: 1.2rem 1.3rem; }
+  .theme-card.selected { padding-left: 1.3rem; }
+  .btn-tool { font-size: 0.62rem; padding: 0.35rem 0.6rem; letter-spacing: 0.03em; }
+  .tb-actions { gap: 0.3rem; }
+  .tb-title { font-size: 0.85rem; }
+}
+
+@media print {
+  .toolbar { display: none; }
+  body { background: white; }
+  .notes-body:empty::before { content: ''; }
+  .card, .theme-card, .ref-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="tb-title">CRie <em>Lagoinha Sydney</em></div>
+  <div class="tb-actions">
+    <button class="btn-tool btn-save" onclick="saveAll()">Salvar</button>
+    <button class="btn-tool btn-clear" onclick="clearAll()">Limpar</button>
+    <button class="btn-tool btn-pdf" onclick="window.print()">PDF</button>
+  </div>
+  <div id="toast" class="toast"></div>
+</div>
+
+<div class="page">
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="hero-logo">
+      <img src="data:image/png;base64,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" alt="CRie Lagoinha">
+    </div>
+    <div class="hero-eyebrow">Ministério da Igreja Batista da Lagoinha Sydney</div>
+    <h1>Planejamento <em>Segundo Semestre</em> 2026</h1>
+    <p class="hero-sub">Uma comunidade de cristãos empreendedores construindo negócios sólidos com propósito, fé e excelência.</p>
+    <div class="hero-verse">
+      <p>"Tudo quanto fizerdes, fazei-o de todo o coração, como para o Senhor."</p>
+      <strong>Colossenses 3.23</strong>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 01 . NOSSA VISÃO -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">01</div>
+    <h2 class="section-title">A visão do CRie para o semestre</h2>
+    <p class="section-lead" contenteditable="true">O CRie é o ministério da Lagoinha Sydney para empreendedores. No segundo semestre de 2026 damos um passo maior. Deixamos de ser encontros pontuais e nos tornamos uma comunidade estruturada, com programação clara, formação prática e suporte real entre os membros ao longo de todo o semestre.</p>
+
+    <div class="card">
+      <div class="sub-head">O caminho que vamos percorrer</div>
+      <ul class="list" contenteditable="true">
+        <li>Agosto . Um jantar que abre o semestre e ativa a rede</li>
+        <li>Setembro . Uma imersão prática de Business Plan em formato de faculdade</li>
+        <li>Outubro e Novembro . Dois workshops com profissionais cristãos referência</li>
+        <li>Dezembro . Um encerramento forte que sela 2026 e planta 2027</li>
+        <li>Todo o semestre . Um grupo de WhatsApp ativo, estratégico e útil</li>
+      </ul>
+
+      <div class="notes">
+        <div class="notes-label">Anotações do pastor sobre a visão</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 02 . COMUNIDADE WHATSAPP -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">02</div>
+    <h2 class="section-title">A comunidade no WhatsApp</h2>
+    <p class="section-lead" contenteditable="true">Hoje o grupo tem mais de 60 pessoas e circula bem: dicas, vídeos motivacionais, notícias. Queremos dar um passo além. Um grupo estratégico que vira ferramenta real de crescimento profissional, sem virar poluição.</p>
+
+    <div class="card">
+
+      <div class="sub-head">Ritmo semanal proposto</div>
+      <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:0.5rem;" contenteditable="true">Postar todo dia cansa o grupo e o líder. A proposta é dois posts fixos na semana e um encontro online mensal ou semanal na sexta. Todos sabem o que esperar e ninguém precisa "inventar" conteúdo. A liderança organiza um rodízio de responsáveis.</p>
+
+      <div class="week-grid">
+        <div class="week-day">
+          <div class="week-day-name">Segunda</div>
+          <div class="week-day-title" contenteditable="true">Palavra da Semana</div>
+          <div class="week-day-desc" contenteditable="true">Versículo + reflexão curta aplicada ao empreendedor cristão. Abre a semana com direção.</div>
+        </div>
+        <div class="week-day">
+          <div class="week-day-name">Quarta</div>
+          <div class="week-day-title" contenteditable="true">Conteúdo Prático</div>
+          <div class="week-day-desc" contenteditable="true">Rodízio semanal entre três pautas . dica de negócio, aprendizado (livro / curso / vídeo) ou membro em destaque.</div>
+        </div>
+        <div class="week-day">
+          <div class="week-day-name">Sexta</div>
+          <div class="week-day-title" contenteditable="true">Meeting de Leitura</div>
+          <div class="week-day-desc" contenteditable="true">Encontro online semanal para discutir um livro escolhido em conjunto. Rodízio de quem conduz a conversa da semana.</div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Sobre busca de emprego</div>
+        <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:0.5rem;" contenteditable="true">A busca de emprego e o compartilhamento de vagas continuam sob o ministério WeCare, no grupo de WhatsApp já existente e ativo da igreja. Respeitamos essa estrutura. No grupo do CRie, apenas divulgamos e reforçamos diariamente o canal do WeCare para quem precisa. Cada ministério com seu foco, mas trabalhando juntos.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Sugestões de livros para o meeting de sexta</div>
+        <ul class="list" contenteditable="true">
+          <li>Empreendedor Profissional . Michael Gerber . O clássico sobre sair da operação e construir um negócio de verdade</li>
+          <li>Do Mil ao Milhão . Thiago Nigro . Educação financeira aplicada à realidade do empreendedor</li>
+          <li>Pai Rico Pai Pobre . Robert Kiyosaki . Base de mentalidade financeira, leitura leve e transformadora</li>
+          <li>A Bíblia da Liderança . John Maxwell . Princípios bíblicos aplicados à liderança de negócios</li>
+          <li>Crie o Impossível . Nick Vujicic . Fé, propósito e superação para quem constrói do zero</li>
+          <li>Espia como é . Rico Adrega . Mentalidade e ação de empreendedor cristão brasileiro</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Elementos mensais que dão vida ao grupo</div>
+        <ul class="list" contenteditable="true">
+          <li>Empreendedor do mês . Escolhido pela liderança, ganha um post fixo e uma live curta de 15 minutos no grupo</li>
+          <li>Desafio do mês . Uma pergunta ou ação prática para os membros aplicarem (ex: revise seu preço, poste um depoimento, atualize seu LinkedIn)</li>
+          <li>Encontro rápido online . Um café virtual mensal de 30 minutos para quem quiser aparecer, sem pauta fechada</li>
+          <li>Diretório interno . Uma planilha simples com nome, negócio, contato e o que cada membro oferece. Atualizada trimestralmente</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Regras que protegem o grupo</div>
+        <ul class="list" contenteditable="true">
+          <li>Sem correntes, sem áudios longos sem contexto, sem pirâmide</li>
+          <li>Divulgação de negócio próprio só nos dias definidos ou em resposta a pedidos</li>
+          <li>Debates polêmicos vão para conversa privada, não para o grupo</li>
+          <li>Todo membro passa por uma boas-vindas com as regras claras</li>
+        </ul>
+      </div>
+
+      <div class="notes">
+        <div class="notes-label">Ideias e ajustes para o WhatsApp</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 03 . REFERÊNCIAS DE COMUNIDADES -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">03</div>
+    <h2 class="section-title">Comunidades que servem de referência</h2>
+    <p class="section-lead" contenteditable="true">Existem grupos no mundo que fazem exatamente isso muito bem. Estudamos como funcionam para adaptar o melhor de cada um ao contexto da nossa igreja.</p>
+
+    <div class="ref-card">
+      <div class="ref-head">
+        <div class="ref-name">BNI . Business Network International</div>
+        <div class="ref-tag">Referência global</div>
+      </div>
+      <div class="ref-tagline">"Givers Gain" . Quem dá primeiro, recebe depois</div>
+
+      <div class="ref-block">
+        <div class="ref-block-label">Quem são</div>
+        <div class="ref-block-body">Fundado em 1985 nos Estados Unidos por Ivan Misner. Hoje reúne mais de 300 mil empresários em mais de 11 mil grupos locais espalhados por 76 países.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">O que fazem</div>
+        <div class="ref-block-body">Geram negócios uns para os outros por meio de indicações qualificadas. A meta declarada de cada membro é passar indicações reais para os outros membros toda semana.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">Como funciona</div>
+        <div class="ref-block-body">Encontros semanais presenciais de 90 minutos, sempre pela manhã, com café. Só um profissional por área em cada grupo (um contador, um advogado, um designer). Cada membro tem 60 segundos para se apresentar e alguém é sorteado para uma apresentação de 10 minutos. O grupo mede quantas indicações cada um passou no mês.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">O que copiamos</div>
+        <div class="ref-block-body" contenteditable="true">A ideia de rodízio de apresentação, a cultura de indicar antes de pedir, e o registro simples de quem ajudou quem.</div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-head">
+        <div class="ref-name">C12 Group</div>
+        <div class="ref-tag">Referência cristã</div>
+      </div>
+      <div class="ref-tagline">CEOs cristãos construindo negócios como plataforma do Reino</div>
+
+      <div class="ref-block">
+        <div class="ref-block-label">Quem são</div>
+        <div class="ref-block-body">Fundado em 1992 por Buck Jacobs, empresário cristão americano. Hoje reúne cerca de 4 mil líderes de negócio em grupos ao redor do mundo, com sede nos Estados Unidos.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">O que fazem</div>
+        <div class="ref-block-body">Reunir empresários cristãos para conselho mútuo, ensino bíblico aplicado a negócio e prestação de contas em grupo. O lema é: melhores líderes, melhores empresas, para propósitos maiores.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">Como funciona</div>
+        <div class="ref-block-body">Encontro mensal de um dia inteiro em grupos de doze pessoas no máximo. A manhã é ensino: um tema bíblico ligado a liderança e negócio. A tarde é rodada individual, onde cada membro apresenta um desafio real do seu negócio e recebe conselho do grupo. Tudo confidencial. O facilitador é sempre um empresário mais experiente.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">O que copiamos</div>
+        <div class="ref-block-body" contenteditable="true">O modelo de "mesa de conselho" onde cada membro apresenta um desafio e ouve conselho dos outros. A cultura de confidencialidade. O ensino bíblico aplicado ao dia a dia do negócio.</div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-head">
+        <div class="ref-name">Comunidade G4 Educação</div>
+        <div class="ref-tag">Referência Brasil</div>
+      </div>
+      <div class="ref-tagline">Empresários brasileiros crescendo em rede</div>
+
+      <div class="ref-block">
+        <div class="ref-block-label">Quem são</div>
+        <div class="ref-block-body">Comunidade fundada por Tallis Gomes reunindo empresários brasileiros de médio e grande porte que passam por programas de aceleração e permanecem conectados depois.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">Como funciona</div>
+        <div class="ref-block-body">Formação intensiva em módulos, seguida de acesso vitalício a uma comunidade online estruturada por segmento de negócio, com encontros presenciais anuais, mentoria entre pares e conteúdo semanal produzido pelos próprios membros.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">O que copiamos</div>
+        <div class="ref-block-body" contenteditable="true">A ideia de conexão contínua depois de uma formação inicial. A estrutura por interesse e segmento. O senso de "turma" que se ajuda.</div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-head">
+        <div class="ref-name">Rotary Club</div>
+        <div class="ref-tag">Modelo adaptado</div>
+      </div>
+      <div class="ref-tagline">Servir para transformar comunidades</div>
+
+      <div class="ref-block">
+        <div class="ref-block-label">Quem são</div>
+        <div class="ref-block-body">Fundado em 1905 nos Estados Unidos. Reúne 1,4 milhão de profissionais e líderes em mais de 46 mil clubes ao redor do mundo, incluindo dezenas em Sydney.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">Como funciona</div>
+        <div class="ref-block-body">Encontros semanais ou quinzenais que combinam refeição, palestra e planejamento de projetos sociais. Cada clube adota causas locais e trabalha em conjunto. A liderança rotaciona anualmente entre os membros.</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-block-label">O que copiamos</div>
+        <div class="ref-block-body" contenteditable="true">O ritual de encontros regulares com refeição. O senso de propósito além do negócio próprio. A liderança compartilhada e rotativa.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="notes">
+        <div class="notes-label">Referências que quero explorar mais</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">Cronograma do Semestre</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 04 . AGOSTO . JANTAR -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">04</div>
+    <h2 class="section-title">Agosto . Jantar de abertura</h2>
+    <div class="card">
+      <div class="month-head">
+        <div>
+          <div class="month-mark">08<span class="month-mark-sub">Agosto</span></div>
+        </div>
+        <div class="month-meta">
+          <div class="month-cat">Jantar formal . Traje social</div>
+          <h3 class="month-title" contenteditable="true">Roda de negócios com propósito</h3>
+          <p class="month-desc" contenteditable="true">Um jantar formal e elegante para abrir o semestre e ativar a comunidade. Sem televisão, sem projeção, sem palestra longa. Papel, caneta, boa comida e conversa de verdade. O formato é uma roda de negócios: mesas redondas, dinâmicas guiadas, rodadas de fala e networking estruturado. Como cobramos ingresso, a experiência precisa ser irretocável.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Escolha o tema . Quatro conceitos completos</div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">A Mesa que Transforma</div>
+              <div class="theme-verse">"Eis que estou à porta e bato" . Apocalipse 3.20</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">Na Bíblia, a mesa é lugar de decisão, aliança e virada. Cada mesa do jantar vira um pequeno conselho de negócios. Papel e caneta em cada lugar. Ao longo da noite, três rodadas de conversa com perguntas guiadas. Todo mundo fala, todo mundo escuta, todo mundo sai com algo concreto na mão.</div>
+          <div class="theme-detail">
+            <strong>Como funciona na prática</strong>
+            Mesas de seis a oito pessoas. Cada mesa recebe um envelope com três desafios reais de empreendedor (ex: como precificar sem medo, como conseguir o primeiro cliente, como sair do vermelho). A mesa escolhe um dos três desafios para discutir na noite. Cada participante fala três minutos sobre como enxerga o desafio, sem interrupção. Depois a mesa constrói junto as três melhores soluções e anota em uma folha. No fim, cada mesa compartilha em voz alta a solução mais criativa que criou.
+            <strong>Papel de exercício</strong>
+            Uma folha por pessoa com três campos . Meu maior desafio hoje . O que ouvi que me marcou . Meu próximo passo em 3 palavras
+            <strong>Encerramento</strong>
+            Rodada em pé onde cada pessoa lê em voz alta seu próximo passo. Oração final de compromisso.
+          </div>
+        </div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">O Chamado e o ABN . TFN</div>
+              <div class="theme-verse">"Confia teus feitos ao Senhor" . Provérbios 16.3</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">Uma noite de histórias reais. Três ou quatro empreendedores da comunidade contam em cinco minutos: onde começaram, o pior momento, a virada que Deus fez acontecer. Entre as histórias, o grupo para para refletir e conversar nas mesas. Sem palestra teórica, só vida real.</div>
+          <div class="theme-detail">
+            <strong>Como funciona na prática</strong>
+            Três histórias curtas de cinco minutos cada, contadas em pé no centro da roda. Entre cada história, oito minutos de conversa na mesa com uma pergunta guia. Ex: depois da primeira história . "Qual chamado você está adiando por medo?" . depois da segunda . "Qual seu pior momento e o que ele te ensinou?" . depois da terceira . "O que Deus quer construir por meio de você nos próximos meses?"
+            <strong>Papel de exercício</strong>
+            Cartão dobrável com três frases para completar . Meu chamado é... . Meu maior obstáculo hoje é... . Meu próximo passo é...
+            <strong>Encerramento</strong>
+            Cada pessoa lê o próximo passo para a mesa. Um voluntário lê para o grupo inteiro. Oração de consagração.
+          </div>
+        </div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">Sua Rede é seu Patrimônio</div>
+              <div class="theme-verse">"Melhor é serem dois do que um" . Eclesiastes 4.9</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">Uma noite construída para gerar conexão real entre os empreendedores. Ninguém precisa levantar da mesa. Todo o exercício acontece com papel, caneta e conversa guiada dentro do próprio espaço. Cada pessoa sai com pelo menos duas conexões qualificadas anotadas.</div>
+          <div class="theme-detail">
+            <strong>Opção A . Jantar sentado nas mesas</strong>
+            Cada mesa vira uma célula de negócios. Todos ficam nos seus lugares durante toda a noite. Cada pessoa recebe uma folha chamada "Carta de Rede" com três campos . o que eu faço . que ajuda eu preciso . que ajuda eu ofereço . Cada participante escreve o próprio e passa a carta para o vizinho da direita, que lê e anota se pode ajudar em algo. Depois de todos lerem, a carta volta ao dono cheia de anotações e possíveis conexões.
+            <strong>Opção B . Formato canapés e coquetel</strong>
+            Se o formato for de comida em pé com canapés e mesas altas, dividimos em dois grupos que se alternam. Cada grupo tem quinze minutos para conversar entre si com uma pergunta guiada . depois trocam de espaço. Ao final, cada participante circula livre para fechar as conexões que apareceram nas rodadas.
+            <strong>Papel de exercício</strong>
+            Todos recebem a Carta de Rede na chegada. Três colunas . pessoas que podem me ajudar . pessoas que posso ajudar . conexões qualificadas a fazer nos próximos trinta dias.
+            <strong>Encerramento</strong>
+            Matchmaking assistido pela liderança lendo as cartas em voz alta . "João precisa de contador, Ana é contadora, vamos apresentar." A noite termina com pelo menos duas apresentações formais entre membros feitas pelo próprio líder.
+          </div>
+        </div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">Cinco Perguntas</div>
+              <div class="theme-verse">"O conselho no coração do homem é como águas profundas" . Provérbios 20.5</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">Uma noite construída em cima de cinco perguntas profundas. Envelopes na mesa, abertos um por vez ao longo do jantar. Cada pessoa responde em três minutos. Ninguém interrompe. O papel é escutar de verdade.</div>
+          <div class="theme-detail">
+            <strong>Como funciona na prática</strong>
+            Cinco envelopes lacrados na mesa, numerados. A cada nova rodada do jantar, a mesa abre um envelope e lê a pergunta em voz alta. Cada pessoa responde em três minutos, sem debate. Depois de todas as respostas, dois minutos de silêncio para anotar. Exemplos de perguntas . Se seu negócio fechasse amanhã, o que você faria de diferente? . O que Deus está te chamando para começar? . O que está te impedindo de crescer? . Quem você precisa perdoar para prosperar? . O que você quer que digam de você em cinco anos?
+            <strong>Papel de exercício</strong>
+            Um caderninho pequeno com uma página por pergunta. Espaço para escrever a própria resposta e as três respostas dos outros que mais marcaram.
+            <strong>Encerramento</strong>
+            Rodada final geral . "O que levo dessa noite em uma frase." Oração coletiva.
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Roteiro sugerido da noite</div>
+        <div class="roteiro">
+          <div class="roteiro-title">Editável . Clique em qualquer linha para ajustar</div>
+          <div contenteditable="true">
+            <div class="roteiro-item"><div class="roteiro-time">18:30</div><div class="roteiro-what">Recepção com música ambiente. Credenciamento. Foto individual de chegada.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">19:00</div><div class="roteiro-what">Abertura oficial. Boas vindas do pastor. Oração. Apresentação do CRie e da visão do semestre.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">19:15</div><div class="roteiro-what">Primeira rodada de fala. Cada mesa se apresenta em círculo.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">19:45</div><div class="roteiro-what">Entrada servida. Segunda rodada de conversa guiada.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">20:15</div><div class="roteiro-what">Prato principal. Terceira rodada com o exercício central do tema escolhido.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">21:00</div><div class="roteiro-what">Cada mesa apresenta em voz alta a conclusão da noite.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">21:15</div><div class="roteiro-what">Sobremesa e café. Lançamento das inscrições para a imersão de setembro.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">21:45</div><div class="roteiro-what">Networking livre. Fotos. Encerramento com oração.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div class="notes-label">Ideias do time sobre o jantar</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 05 . SETEMBRO . IMERSÃO BP -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">05</div>
+    <h2 class="section-title">Setembro . Imersão de Business Plan</h2>
+    <div class="card">
+      <div class="month-head">
+        <div>
+          <div class="month-mark">09<span class="month-mark-sub">Setembro</span></div>
+        </div>
+        <div class="month-meta">
+          <div class="month-cat">Imersão de dia inteiro . Ingresso pago</div>
+          <h3 class="month-title" contenteditable="true">Do zero ao plano em um dia</h3>
+          <p class="month-desc" contenteditable="true">Uma imersão como uma aula prática de faculdade. De manhã, aulas curtas ensinando o que é um Business Plan, para que serve e como se faz. Um convidado no máximo, que conta como construiu o próprio negócio. Almoço. À tarde, os participantes se dividem em pequenos grupos, constroem o próprio BP com nossa mentoria e apresentam para a turma.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Como o dia é estruturado</div>
+        <ul class="list" contenteditable="true">
+          <li>Manhã . Café e três blocos de aula curta ministrados por Michel e Pedro, alternando entre teoria (o que é) e prática (como fazer)</li>
+          <li>Convidado . Um empreendedor de referência conta em vinte minutos como construiu o próprio business</li>
+          <li>Almoço . Servido na igreja, incluído no ingresso, tempo de conversa livre</li>
+          <li>Tarde . Uma a duas horas de construção do BP em pequenos grupos de três a cinco pessoas, com Michel e Pedro circulando entre os grupos para mentoria</li>
+          <li>Apresentação . Cada grupo apresenta a ideia em cinco minutos e recebe feedback construtivo dos outros e da liderança</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Roteiro do dia</div>
+        <div class="roteiro">
+          <div class="roteiro-title">Editável . Clique para ajustar horários e blocos</div>
+          <div contenteditable="true">
+            <div class="roteiro-item"><div class="roteiro-time">08:30</div><div class="roteiro-what">Café da manhã e boas vindas</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">09:00</div><div class="roteiro-what">Bloco 1 com Michel . O que é um Business Plan e por que ele importa. Trinta minutos.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">09:30</div><div class="roteiro-what">Bloco 2 com Pedro . Como se estrutura um BP na prática. Trinta minutos.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">10:00</div><div class="roteiro-what">Pausa curta com café</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">10:15</div><div class="roteiro-what">Bloco 3 . Convidado especial conta a história do próprio negócio. Vinte minutos.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">10:40</div><div class="roteiro-what">Perguntas e respostas com o convidado. Vinte minutos.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">11:00</div><div class="roteiro-what">Formação dos grupos de trabalho. Explicação da tarefa da tarde.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">12:00</div><div class="roteiro-what">Almoço servido na igreja</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">13:00</div><div class="roteiro-what">Construção do BP em pequenos grupos com mentoria de Michel e Pedro</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">14:30</div><div class="roteiro-what">Pausa curta e organização das apresentações</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">15:00</div><div class="roteiro-what">Apresentação de cada grupo. Cinco minutos por grupo mais três de feedback.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">16:00</div><div class="roteiro-what">Encerramento, próximos passos e oração final</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Ideias para o convidado especial</div>
+        <p style="font-size:0.88rem; color:var(--ink-soft); margin-bottom:0.5rem;" contenteditable="true">Buscamos um empreendedor cristão da comunidade brasileira em Sydney com um negócio consolidado, que possa contar a jornada de forma direta e prática. Não uma palestra motivacional, mas o passo a passo do que fez, o que deu certo e o que faria diferente hoje.</p>
+        <ul class="list" contenteditable="true">
+          <li>Alguém que abriu um restaurante ou café bem sucedido</li>
+          <li>Alguém que construiu uma prestação de serviço com equipe (limpeza, construção, beleza)</li>
+          <li>Alguém do mercado de tecnologia ou negócio digital</li>
+          <li>Alguém que começou vendendo sozinho e hoje tem um negócio com funcionários</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Quem conduz a imersão</div>
+        <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:0.5rem;" contenteditable="true">A imersão é conduzida por Michel Camara Berestinas, consultor e mentor de negócios atuando em Sydney com mais de quinze anos de experiência corporativa entre Brasil e Austrália, incluindo EY, Carrefour e American Express, hoje à frente da Lux &amp; Co. Consulting. Ao lado dele, Pedro assume o papel de colíder e ensino. A autoridade que trazemos para a sala é a experiência real de quem já construiu, aconselhou e viu funcionar.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">O que cada participante leva no fim do dia</div>
+        <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:0.5rem;" contenteditable="true">Não entregamos material impresso ou cadernos comprados. O que fica é o que foi construído durante o dia, o que foi ouvido dos mentores e a rede formada. Cada participante recebe apenas um crachá de identificação na chegada.</p>
+        <ul class="list" contenteditable="true">
+          <li>Um Business Plan próprio construído em grupo durante a tarde, com estrutura clara e aplicável</li>
+          <li>Conhecimento real sobre como pensar um negócio do zero, com base em experiência prática</li>
+          <li>Feedback direto de Michel e Pedro sobre a ideia apresentada</li>
+          <li>Conexões novas dentro do grupo de trabalho</li>
+          <li>Abertura para continuar sendo acompanhado no grupo do CRie</li>
+        </ul>
+      </div>
+
+      <div class="notes">
+        <div class="notes-label">Anotações da imersão de setembro</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 06 . OUTUBRO E NOVEMBRO . WORKSHOP -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">06</div>
+    <h2 class="section-title">Outubro e Novembro . Workshop com profissionais</h2>
+    <div class="card">
+      <div class="month-head">
+        <div>
+          <div class="month-mark">10<span class="month-mark-sub">Out . Nov</span></div>
+        </div>
+        <div class="month-meta">
+          <div class="month-cat">Dois workshops de dia inteiro . Ingresso pago</div>
+          <h3 class="month-title" contenteditable="true">Profissionais cristãos que mudam vidas</h3>
+          <p class="month-desc" contenteditable="true">Dois dias completos, cada um com um foco. Convidamos profissionais cristãos bem sucedidos de áreas diferentes para conduzir mesas temáticas. Os participantes rotacionam entre as mesas ao longo do dia, absorvendo o que cada profissional tem de melhor. Café da manhã, almoço e café da tarde inclusos. Um dia para sair diferente.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Workshop 1 . Outubro . Vida e Carreira</div>
+        <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:0.8rem;" contenteditable="true">Voltado para quem quer dar um passo prático na vida aqui na Austrália. Não é só sobre office ou área corporativa. É sobre construir uma vida melhor com o que se tem hoje, seja no serviço, no comércio, na cozinha ou no escritório.</p>
+        <div class="sub-head" style="margin-top:1rem;">Mesas temáticas sugeridas</div>
+        <ul class="list" contenteditable="true">
+          <li>Mesa 1 . Especialista em resume . Como construir um CV que abre porta na Austrália, em qualquer área</li>
+          <li>Mesa 2 . Dono de café ou food business . Como começar, sobreviver ao primeiro ano e crescer</li>
+          <li>Mesa 3 . Profissional de finanças pessoais . Como organizar a vida financeira do brasileiro em Sydney</li>
+          <li>Mesa 4 . Contador . TFN, ABN, super, tax return . o básico que ninguém explica direito</li>
+          <li>Mesa 5 . Empreendedor de serviço . Como sair do trabalho braçal para o próprio negócio</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Workshop 2 . Novembro . Negócio de Verdade</div>
+        <p style="font-size:0.9rem; color:var(--ink-soft); margin-bottom:0.8rem;" contenteditable="true">Voltado para quem já tem algo rodando, mesmo que pequeno, e quer profissionalizar. Precificação, marketing prático, cliente que volta, gestão do dia a dia. Sem teoria de MBA, com quem já fez.</p>
+        <div class="sub-head" style="margin-top:1rem;">Mesas temáticas sugeridas</div>
+        <ul class="list" contenteditable="true">
+          <li>Mesa 1 . Especialista em precificação . Como cobrar o que vale sem perder cliente</li>
+          <li>Mesa 2 . Marketing para pequeno negócio . Instagram, WhatsApp e boca a boca que funcionam</li>
+          <li>Mesa 3 . Contador para pequeno negócio . GST, ABN, folha de pagamento, o que o negócio precisa saber</li>
+          <li>Mesa 4 . Dono de café, salão ou comércio . Como fidelizar cliente e ter recorrência</li>
+          <li>Mesa 5 . Consultor financeiro de negócio . Fluxo de caixa, margem e o que fazer quando aperta</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Como o dia funciona</div>
+        <p style="font-size:0.9rem; color:var(--ink-soft);" contenteditable="true">Cinco mesas simultâneas com um profissional em cada uma. Os participantes se dividem em cinco grupos e rotacionam a cada 45 minutos. Ao final do dia, cada participante passou por todas as mesas. Formato mais próximo de um bootcamp que de uma palestra.</p>
+
+        <div class="roteiro" style="margin-top:1rem;">
+          <div class="roteiro-title">Roteiro do dia . Editável</div>
+          <div contenteditable="true">
+            <div class="roteiro-item"><div class="roteiro-time">08:30</div><div class="roteiro-what">Café da manhã e boas vindas</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">09:00</div><div class="roteiro-what">Abertura, apresentação dos profissionais convidados, divisão dos grupos</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">09:30</div><div class="roteiro-what">Rodada 1 . Cada grupo em uma mesa. Quarenta e cinco minutos.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">10:15</div><div class="roteiro-what">Rodada 2 . Grupos rotacionam</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">11:00</div><div class="roteiro-what">Pausa e café</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">11:15</div><div class="roteiro-what">Rodada 3 . Grupos rotacionam</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">12:00</div><div class="roteiro-what">Almoço servido na igreja</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">13:00</div><div class="roteiro-what">Rodada 4 . Grupos rotacionam</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">13:45</div><div class="roteiro-what">Rodada 5 . Última mesa, todos passaram por todas as mesas</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">14:30</div><div class="roteiro-what">Café da tarde</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">15:00</div><div class="roteiro-what">Painel final . Todos os profissionais no palco respondem perguntas do grupo</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">16:00</div><div class="roteiro-what">Cada participante escreve o próximo passo em um cartão. Rodada de compromisso.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">16:30</div><div class="roteiro-what">Encerramento e oração</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Sugestões de profissionais cristãos a convidar</div>
+        <p style="font-size:0.88rem; color:var(--ink-soft); margin-bottom:0.5rem;" contenteditable="true">Membros da igreja e da comunidade brasileira em Sydney que estão prosperando em suas áreas. A convocação vem como serviço ao Reino, não como palestra remunerada.</p>
+        <ul class="list" contenteditable="true">
+          <li>Nome sugerido . Área . Contato</li>
+          <li>Nome sugerido . Área . Contato</li>
+          <li>Nome sugerido . Área . Contato</li>
+        </ul>
+      </div>
+
+      <div class="notes">
+        <div class="notes-label">Ideias e nomes para os workshops</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 07 . DEZEMBRO . ENCERRAMENTO -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">07</div>
+    <h2 class="section-title">Dezembro . Marco Zero</h2>
+    <div class="card">
+      <div class="month-head">
+        <div>
+          <div class="month-mark">12<span class="month-mark-sub">Dezembro</span></div>
+        </div>
+        <div class="month-meta">
+          <div class="month-cat">Encontro de encerramento . Ingresso opcional</div>
+          <h3 class="month-title" contenteditable="true">Feche 2026 . Abra 2027</h3>
+          <p class="month-desc" contenteditable="true">O último encontro do ano precisa ter peso. Não é confraternização de fim de ano. É momento de olhar para trás com gratidão, celebrar as vitórias reais e escrever com clareza o próximo capítulo. Cada pessoa sai com uma visão escrita e selada para 2027.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Três blocos do encontro</div>
+        <ul class="list" contenteditable="true">
+          <li>Bloco 1 . Retrospectiva . O que Deus fez em 2026 na vida de cada um</li>
+          <li>Bloco 2 . Testemunhos . Três participantes contam a virada que viveram no semestre</li>
+          <li>Bloco 3 . Visão 2027 . Cada um escreve sua visão do próximo ano, sela em envelope, abre em janeiro</li>
+        </ul>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Escolha o tema . Quatro conceitos</div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">Marco Zero</div>
+              <div class="theme-verse">"Eis que faço nova todas as coisas" . Apocalipse 21.5</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">Um convite para todos zerarem o cronômetro. O que ficou para trás fica para trás. O que precisa ser construído em 2027 começa a ser desenhado hoje. O símbolo da noite é o envelope selado com a visão pessoal do ano que vem.</div>
+        </div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">Eu Construí com o que Eu Tinha</div>
+              <div class="theme-verse">"O que tens em tua mão?" . Êxodo 4.2</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">A noite dos testemunhos. Cada participante compartilha o que construiu no semestre com o que tinha na mão. Nada de comparação, tudo de celebração. Rodada de gratidão coletiva. O ano se fecha com o senso de que ninguém está parado.</div>
+        </div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">A Parábola dos Talentos</div>
+              <div class="theme-verse">"A cada um segundo sua capacidade" . Mateus 25.15</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">Releitura da parábola aplicada à vida do empreendedor cristão. O que cada um recebeu no começo do semestre e o que multiplicou. Momento de reflexão honesta e compromisso público de multiplicar em 2027.</div>
+        </div>
+
+        <div class="theme-card" onclick="toggleTheme(this)">
+          <div class="theme-head">
+            <div>
+              <div class="theme-title">Legado</div>
+              <div class="theme-verse">"O bom homem deixa herança aos filhos" . Provérbios 13.22</div>
+            </div>
+            <div class="theme-check">✓</div>
+          </div>
+          <div class="theme-body">Uma noite para levantar os olhos. Não é só sobre o negócio deste ano. É sobre o que estamos construindo para a próxima geração, para a família, para a igreja, para o Reino. Consagração dos planos de 2027 diante de Deus.</div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Roteiro sugerido do encontro</div>
+        <div class="roteiro">
+          <div class="roteiro-title">Editável . Ajuste conforme o tema escolhido</div>
+          <div contenteditable="true">
+            <div class="roteiro-item"><div class="roteiro-time">19:00</div><div class="roteiro-what">Recepção com café e docinhos. Ambiente celebrativo.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">19:30</div><div class="roteiro-what">Abertura. Palavra do pastor. Oração de gratidão pelo ano.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">19:45</div><div class="roteiro-what">Bloco 1 . Retrospectiva. Michel e Pedro passam pelos marcos do semestre.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">20:00</div><div class="roteiro-what">Bloco 2 . Três testemunhos curtos de participantes. Cinco minutos cada.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">20:30</div><div class="roteiro-what">Palavra central sobre o tema escolhido. Vinte minutos.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">20:50</div><div class="roteiro-what">Bloco 3 . Cada pessoa escreve sua visão para 2027 em uma folha e sela em um envelope. Silêncio, música ambiente, oração pessoal.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">21:15</div><div class="roteiro-what">Rodada de compromisso. Cada um diz em uma frase o que quer construir em 2027.</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">21:35</div><div class="roteiro-what">Oração de consagração e envio para o próximo ano</div></div>
+            <div class="roteiro-item"><div class="roteiro-time">21:50</div><div class="roteiro-what">Confraternização final. Fotos, abraços, brinde sem álcool.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div class="notes-label">Anotações do encerramento</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark">Estrutura de Liderança</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 08 . LIDERANÇA -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">08</div>
+    <h2 class="section-title">Quem lidera o CRie no semestre</h2>
+
+    <div class="card">
+
+      <div class="team-cover">
+        <div class="team-cover-label">Cobertura pastoral</div>
+        <div class="team-avatar team-avatar-lg">PV</div>
+        <div class="team-name-lg" contenteditable="true">Pr. Victor</div>
+        <div class="team-role" contenteditable="true">Líder da Igreja Batista da Lagoinha Sydney</div>
+      </div>
+
+      <div class="team-cover-divider"></div>
+      <div class="team-cover-sub">Liderança do ministério CRie</div>
+
+      <div class="team-row">
+        <div class="team-person">
+          <div class="team-avatar">MC</div>
+          <div class="team-name" contenteditable="true">Michel Camara</div>
+          <div class="team-role" contenteditable="true">Líder . Conteúdo e visão</div>
+        </div>
+        <div class="team-person">
+          <div class="team-avatar">P</div>
+          <div class="team-name" contenteditable="true">Pedro</div>
+          <div class="team-role" contenteditable="true">Colíder . Operação e ensino</div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="sub-head">Como dividimos as responsabilidades</div>
+        <div class="pillar-row">
+          <div class="pillar">
+            <div class="pillar-num">i</div>
+            <h4>Conteúdo</h4>
+            <p contenteditable="true">Michel lidera a construção das aulas, temas dos jantares, escolha de convidados e material dos participantes.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">ii</div>
+            <h4>Operação</h4>
+            <p contenteditable="true">Pedro lidera logística, credenciamento, agenda dos convidados, controle de inscrições e comunicação com a igreja.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-num">iii</div>
+            <h4>Comunidade</h4>
+            <p contenteditable="true">Ambos cuidam da rotina do WhatsApp em rodízio, do acompanhamento pastoral dos membros e das indicações internas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div class="notes-label">Divisão de responsabilidades e apoios do time</div>
+        <div class="notes-body" contenteditable="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- 09 . ANOTAÇÕES GERAIS -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-num">09</div>
+    <h2 class="section-title">Anotações gerais do pastor</h2>
+    <div class="card">
+      <div class="notes">
+        <div class="notes-label">Feedback, ajustes e direcionamentos</div>
+        <div class="notes-body" contenteditable="true" style="min-height:120px;"></div>
+      </div>
+      <div class="notes" style="margin-top:1rem;">
+        <div class="notes-label">Próximos passos e decisões</div>
+        <div class="notes-body" contenteditable="true" style="min-height:120px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="footer-verse">"Ninguém acorda e descobre que a vida mudou sozinha. Decida agora e construa com o que você já tem."</p>
+    <div class="footer-ref">CRie Lagoinha Sydney . Segundo Semestre 2026</div>
+    <div class="footer-mark">Igreja Batista da Lagoinha Sydney</div>
+  </div>
+
+</div>
+
+<script>
+const STORAGE_KEY = 'crie_planejamento_s2_2026';
+
+function toggleTheme(el) {
+  el.classList.toggle('selected');
+}
+
+function showToast(message, isError) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.style.color = isError ? '#ff8a80' : 'var(--gold)';
+  toast.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function tagAllEditables() {
+  const editables = document.querySelectorAll('[contenteditable="true"]');
+  editables.forEach((el, i) => {
+    if (!el.dataset.editId) el.dataset.editId = 'ed_' + i;
+  });
+  const themes = document.querySelectorAll('.theme-card');
+  themes.forEach((el, i) => {
+    if (!el.dataset.themeId) el.dataset.themeId = 'th_' + i;
+  });
+}
+
+function saveAll() {
+  try {
+    tagAllEditables();
+    const data = { edits: {}, themes: {}, savedAt: new Date().toISOString() };
+
+    document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+      data.edits[el.dataset.editId] = el.innerHTML;
+    });
+
+    document.querySelectorAll('.theme-card').forEach(el => {
+      data.themes[el.dataset.themeId] = el.classList.contains('selected');
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    showToast('Salvo com sucesso');
+  } catch (e) {
+    showToast('Erro ao salvar', true);
+    console.error(e);
+  }
+}
+
+function loadAll() {
+  try {
+    tagAllEditables();
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+
+    if (data.edits) {
+      document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+        const saved = data.edits[el.dataset.editId];
+        if (saved !== undefined) el.innerHTML = saved;
+      });
+    }
+
+    if (data.themes) {
+      document.querySelectorAll('.theme-card').forEach(el => {
+        if (data.themes[el.dataset.themeId]) el.classList.add('selected');
+      });
+    }
+  } catch (e) {
+    console.error('Erro ao carregar', e);
+  }
+}
+
+function clearAll() {
+  const confirmed = confirm('Isso apaga TODAS as suas edições, anotações e seleções. Deseja continuar?');
+  if (!confirmed) return;
+
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+    showToast('Recarregando...');
+    setTimeout(() => window.location.reload(), 600);
+  } catch (e) {
+    showToast('Erro ao limpar', true);
+  }
+}
+
+// Autosave a cada 30 segundos se houver mudança
+let hasChanges = false;
+document.addEventListener('input', () => { hasChanges = true; });
+setInterval(() => {
+  if (hasChanges) {
+    try {
+      tagAllEditables();
+      const data = { edits: {}, themes: {}, savedAt: new Date().toISOString() };
+      document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+        data.edits[el.dataset.editId] = el.innerHTML;
+      });
+      document.querySelectorAll('.theme-card').forEach(el => {
+        data.themes[el.dataset.themeId] = el.classList.contains('selected');
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      hasChanges = false;
+    } catch (e) {}
+  }
+}, 30000);
+
+// Carrega ao abrir
+window.addEventListener('DOMContentLoaded', loadAll);
+
+// Salva antes de fechar
+window.addEventListener('beforeunload', () => {
+  if (hasChanges) {
+    try {
+      tagAllEditables();
+      const data = { edits: {}, themes: {}, savedAt: new Date().toISOString() };
+      document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+        data.edits[el.dataset.editId] = el.innerHTML;
+      });
+      document.querySelectorAll('.theme-card').forEach(el => {
+        data.themes[el.dataset.themeId] = el.classList.contains('selected');
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {}
+  }
+});
+</script>
+
+</body>
+</html>
